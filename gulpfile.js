@@ -4,11 +4,11 @@ var csso = require('gulp-csso');
 var uglify = require('gulp-uglify');
 var autoprefixer = require('gulp-autoprefixer');
 
-var destPath = './public_html';
+var destPath = './docs';
 
 gulp.task('sass', function () {
   return gulp
-    .src('./sass/**/*')
+    .src('./sass/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: ['Android >= 4.4', 'Chrome >= 20', 'Firefox >= 15', 'Explorer >= 10', 'iOS >= 6', 'Safari >= 6', 'Opera >= 15'],
@@ -20,12 +20,12 @@ gulp.task('sass', function () {
 
 gulp.task('uglify', function () {
   return gulp
-    .src('./js/**/*')
+    .src('./js/**/*.js')
     .pipe(uglify())
     .pipe(gulp.dest(destPath + '/js'))
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', ['sass', 'uglify'], function () {
   gulp.watch(['./sass/**/*'], ['sass']);
   gulp.watch(['./js/**/*'], ['js']);
 });

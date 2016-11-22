@@ -1,0 +1,22 @@
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 0 0;
+}
+
+.nav a {
+  margin: 0 10px;
+}
+
+.nav :link,
+.nav :visited,
+.nav a:hover {
+  color: #fff300;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.nav :first-child {
+  margin-right: auto;
+}

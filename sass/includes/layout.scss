@@ -1,0 +1,42 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1280px;
+  position: relative;
+  width: 100%;
+  height: calc(100% - 75px);
+  min-height: calc(100% - 75px);
+  background: rgba(17, 17, 17, 0.9);
+}
+
+.layout {
+  display: flex;
+  height: 100%;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.layout-header {
+  /*background: rgba(17, 17, 17, 0.7);*/
+  background: #111;
+  height: 75px;
+}
+
+.layout-main {
+
+}
+
+@media (min-width: 768px) {
+  .layout-main {
+    display: flex;
+    flex: 1 0 0px;
+  }
+}
+
+.layout-content {
+  flex: 3 0 0px;
+}
+
+.layout-chat {
+  flex: 2 0 0px;
+  border-left: 2px solid #111;
+}
