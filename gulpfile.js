@@ -26,8 +26,8 @@ gulp.task('uglify', function () {
 });
 
 gulp.task('watch', ['sass', 'uglify'], function () {
-  gulp.watch(['./sass/**/*'], ['sass']);
-  gulp.watch(['./js/**/*'], ['js']);
+  gulp.watch(['./sass/**/*.scss'], ['sass']);
+  gulp.watch(['./js/**/*.js'], ['js']);
 });
 
 gulp.task('default', ['sass', 'uglify']);
