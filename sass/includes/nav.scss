@@ -12,7 +12,7 @@
 .nav :link,
 .nav :visited,
 .nav a:hover {
-  color: #fff300;
+  color: $color-yellow;
   text-decoration: none;
   border-bottom: 1px solid currentColor;
 }

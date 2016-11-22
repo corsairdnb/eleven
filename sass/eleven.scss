@@ -1,6 +1,9 @@
+@import './includes/colors';
+
 @import './includes/common';
 @import './includes/layout';
 @import './includes/nav';
+@import './includes/events';
 
 .header-logo {
   width: 180px;
@@ -9,6 +12,9 @@
 
 .content-video {
   border-bottom: 2px solid #111;
+}
+.content-events {
+  padding: 20px;
 }
 
 .content-chat {
