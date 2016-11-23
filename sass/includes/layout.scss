@@ -18,14 +18,16 @@
 .layout-header {
   /*background: rgba(17, 17, 17, 0.7);*/
   background: #111;
-  height: 75px;
 }
 
 .layout-main {
 
 }
 
-@media (min-width: 768px) {
+@media (min-width: $ipad) {
+  .layout-header {
+    height: 75px;
+  }
   .layout-main {
     display: flex;
     flex: 1 0 0px;

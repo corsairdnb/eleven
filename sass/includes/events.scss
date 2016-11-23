@@ -5,6 +5,7 @@
     display: flex;
     justify-content: space-around;
     padding: 0 50px;
+    overflow: hidden;
   }
   &__item {
     flex: 1 0 0px;
@@ -34,10 +35,8 @@
       margin: 0 0 2px;
     }
   }
-  &__item--current {
-    //@at-root &__live {
-    //  display: block;
-    //}
+  @at-root &__item--current &__live {
+    display: block;
   }
   &__date {
 

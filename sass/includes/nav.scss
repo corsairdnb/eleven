@@ -1,8 +1,28 @@
 .nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 20px 0 0;
+
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__item {
+    display: block;
+    list-style: none;
+    flex: 1 0 0px;
+
+    &:first-child {
+      margin-right: auto;
+    }
+
+    &--logo {
+      flex: 1 0 180px;
+    }
+  }
 }
 
 .nav a {
@@ -17,6 +37,14 @@
   border-bottom: 1px solid currentColor;
 }
 
-.nav :first-child {
-  margin-right: auto;
+@media (min-width: $ipad) {
+  .nav {
+    padding: 0 20px 0 0;
+
+    &__list {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
 }
