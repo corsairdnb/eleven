@@ -1,19 +1,24 @@
 .event-history {
-  background: #111;
 
-  &__list {
-    display: flex;
-    justify-content: space-around;
-    padding: 0 50px;
-    overflow: hidden;
+  padding: 20px;
+
+  &__container {
+    width: 725px;
   }
-  &__item {
-    flex: 1 0 0px;
-    padding: 20px 0 0;
-    min-width: 85px;
-    position: relative;
-    text-align: center;
-  }
+
+  //&__list {
+  //  display: flex;
+  //  justify-content: space-around;
+  //  padding: 0 50px;
+  //  overflow: hidden;
+  //}
+  //&__item {
+  //  flex: 1 0 0px;
+  //  padding: 20px 0 0;
+  //  min-width: 85px;
+  //  position: relative;
+  //  text-align: center;
+  //}
   &__live {
     display: none;
     position: absolute;
