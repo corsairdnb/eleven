@@ -14,15 +14,40 @@
   min-height: 100%;
   flex-direction: column;
 }
-
 .layout-header {
   /*background: rgba(17, 17, 17, 0.7);*/
   background: #111;
 }
-
 .layout-main {
 
 }
+.layout-content {
+  flex: 3 0 0px;
+  background: #111;
+}
+.layout-chat {
+  flex: 2 0 0px;
+  border-left: 2px solid #111;
+}
+
+
+
+.content-video {
+  border-bottom: 2px solid #111;
+}
+.content-events {
+
+}
+
+.content-chat {
+  /*background: #fff;*/
+  max-height: 100%;
+  padding: 0 0 10px;
+  overflow-y: auto;
+}
+
+
+
 
 @media (min-width: $ipad) {
   .layout-header {
@@ -32,13 +57,4 @@
     display: flex;
     flex: 1 0 0px;
   }
-}
-
-.layout-content {
-  flex: 3 0 0px;
-}
-
-.layout-chat {
-  flex: 2 0 0px;
-  border-left: 2px solid #111;
 }

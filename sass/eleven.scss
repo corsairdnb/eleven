@@ -8,25 +8,6 @@
 @import './includes/nav';
 @import './includes/events';
 
-.header-logo {
-  width: 180px;
-  height: auto;
-}
-
-.content-video {
-  border-bottom: 2px solid #111;
-}
-.content-events {
-  background: #111;
-}
-
-.content-chat {
-  /*background: #fff;*/
-  max-height: 100%;
-  padding: 0 0 10px;
-  overflow-y: auto;
-}
-
 .image-placeholder {
   display: block;
   width: 100%;
