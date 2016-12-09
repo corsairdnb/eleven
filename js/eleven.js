@@ -1,6 +1,7 @@
 ;(function () {
 
   var iframeContainer = $('.iframe-resize');
+  var history = $('.event-history');
 
   function resize() {
     iframeContainer.each(function(i,e){
@@ -16,7 +17,13 @@
       iframe.attr('height', parseInt(iframe.width()) / iframe.attr('data-ratio'));
     });
 
-    $('.swiper-container');
+    $('.event-history__container').each(function(i, e){
+      var container = $(e);
+      var width = container.width();
+      if (width > document.documentElement.clientWidth) {
+        container.width(history.width());
+      }
+    });
   }
 
   resize();

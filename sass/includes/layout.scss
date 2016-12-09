@@ -24,12 +24,12 @@
   //border-right: 1px solid $color-yellow;
 }
 .layout-content {
-  flex: 3 0 0px;
+  flex: 2 0 0px;
   background: #111;
 }
 .layout-chat {
   flex: 2 0 0px;
-  border-left: 2px solid #111;
+  //border-left: 2px solid #111;
 }
 
 
@@ -55,8 +55,17 @@
   .layout-header {
     height: 75px;
   }
+}
+@media (min-width: $ipad-land) {
   .layout-main {
+    flex-direction: row;
     display: flex;
     flex: 1 0 0px;
+  }
+  .layout-content {
+    flex: 1 2 0px;
+  }
+  .layout-chat {
+    flex: 2 0 0px;
   }
 }
