@@ -17,9 +17,11 @@
 .layout-header {
   /*background: rgba(17, 17, 17, 0.7);*/
   background: #111;
+  border-bottom: 1px solid $color-yellow;
 }
 .layout-main {
-
+  //border-left: 1px solid $color-yellow;
+  //border-right: 1px solid $color-yellow;
 }
 .layout-content {
   flex: 3 0 0px;

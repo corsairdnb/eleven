@@ -1,0 +1,10 @@
+@mixin arrow-border($size: .4em, $color: currentColor, $dir: top) {
+  border-width: $size;
+  border-color: transparent;
+  border-#{$dir}-color: $color;
+  border-style: solid;
+}
+
+@mixin arrow($size: .4em, $color: currentColor, $dir: top) {
+  @include arrow-border($size, $color, $dir);
+}
