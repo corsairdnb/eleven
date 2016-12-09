@@ -1,5 +1,9 @@
 ;(function () {
 
+  $('.nav-mobile__burger').on('click', function () {
+    $('.nav-mobile').toggleClass('nav-mobile--opened');
+  });
+
   var iframeContainer = $('.iframe-resize');
   var history = $('.event-history');
 
