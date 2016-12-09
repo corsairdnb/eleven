@@ -18,16 +18,16 @@ gulp.task('sass', function () {
     .pipe(gulp.dest(destPath + '/css'))
 });
 
-gulp.task('uglify', function () {
+gulp.task('js', function () {
   return gulp
     .src('./js/**/*.js')
     .pipe(uglify())
     .pipe(gulp.dest(destPath + '/js'))
 });
 
-gulp.task('watch', ['sass', 'uglify'], function () {
+gulp.task('watch', ['sass', 'js'], function () {
   gulp.watch(['./sass/**/*.scss'], ['sass']);
   gulp.watch(['./js/**/*.js'], ['js']);
 });
 
-gulp.task('default', ['sass', 'uglify']);
+gulp.task('default', ['sass', 'js']);
