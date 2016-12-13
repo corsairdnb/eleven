@@ -30,7 +30,6 @@ $mobile-top-menu-height: $top-menu-height - 1px;
     z-index: -1;
   }
   ul {
-    background: #000;
     transition: transform .3s;
     transform: translateX(250px);
     width: 200px;
@@ -49,6 +48,7 @@ $mobile-top-menu-height: $top-menu-height - 1px;
       margin: 0;
       padding: 0;
       border-bottom: 1px solid $color-yellow;
+      border-left: 1px solid $color-yellow;
 
       a, a:visited, span {
         display: block;
@@ -57,7 +57,6 @@ $mobile-top-menu-height: $top-menu-height - 1px;
         line-height: 1em;
         color: #fff;
         text-decoration: none;
-        text-transform: uppercase;
       }
       a:hover {
         background: #fff;
@@ -72,7 +71,7 @@ $mobile-top-menu-height: $top-menu-height - 1px;
 
     .nav-mobile-cnt {
       ul {
-        top: $mobile-top-menu-height + 1px;
+        top: $mobile-top-menu-height + 2px;
       }
     }
     ul {
@@ -93,8 +92,8 @@ $mobile-top-menu-height: $top-menu-height - 1px;
     position: relative;
     display: inline-block;
     vertical-align: top;
-    width: 20px;
-    height: 10px;
+    width: 40px;
+    height: 11px;
     margin: 0 0 0 auto;
     padding: $padding-top $padding-left;
     cursor: pointer;
@@ -106,7 +105,7 @@ $mobile-top-menu-height: $top-menu-height - 1px;
       position: absolute;
       width: 20px;
       height: 2px;
-      left: $padding-left;
+      left: $padding-left + 10px;
       top: $dash-middle-position;
       /* autoprefixer: off */
       transition-property: background-color, transform, opacity, top;

@@ -64,7 +64,7 @@
 
                         <div class="event-history__container swiper-container">
                             <div class="event-history__list swiper-wrapper">
-                                <div class="swiper-slide event-history__item event-history__item--current">
+                                <div class="swiper-slide event-history__item event-history__item--current" data-event-day="8" data-event-month="декабря" data-event-weekday="четверг" data-event-time="20:00" data-event-live="">
                                     <div class="event-history__date">
                                         <div class="event-history__date-num">
                                             8
@@ -76,11 +76,14 @@
                                     <div class="event-history__day">
                                         четверг
                                     </div>
-                                    <div class="event-history__live">
+                                    <!--<div class="event-history__live">
                                         Live
-                                    </div>
+                                    </div>-->
+                                    <p class="event-history__description">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ducimus eum iste labore natus quaerat repellat totam. Accusamus blanditiis cupiditate deleniti, dignissimos earum, ipsam nostrum quam quas quo, quos repellat.
+                                    </p>
                                 </div>
-                                <div class="swiper-slide event-history__item">
+                                <div class="swiper-slide event-history__item" data-event-day="9" data-event-month="декабря" data-event-weekday="пятница" data-event-time="19:00">
                                     <div class="event-history__date">
                                         <div class="event-history__date-num">
                                             9
@@ -92,8 +95,11 @@
                                     <div class="event-history__day">
                                         пятница
                                     </div>
+                                    <p class="event-history__description">
+                                        test
+                                    </p>
                                 </div>
-                                <div class="swiper-slide event-history__item">
+                                <div class="swiper-slide event-history__item" data-event-day="10" data-event-month="декабря" data-event-weekday="суббота" data-event-time="21:00">
                                     <div class="event-history__date">
                                         <div class="event-history__date-num">
                                             10
@@ -106,7 +112,7 @@
                                         суббота
                                     </div>
                                 </div>
-                                <div class="swiper-slide event-history__item">
+                                <div class="swiper-slide event-history__item" data-event-day="8" data-event-month="декабря" data-event-weekday="">
                                     <div class="event-history__date">
                                         <div class="event-history__date-num">
                                             15
@@ -119,7 +125,7 @@
                                         четверг
                                     </div>
                                 </div>
-                                <div class="swiper-slide event-history__item">
+                                <div class="swiper-slide event-history__item" data-event-day="8" data-event-month="декабря" data-event-weekday="">
                                     <div class="event-history__date">
                                         <div class="event-history__date-num">
                                             16
@@ -132,7 +138,7 @@
                                         пятница
                                     </div>
                                 </div>
-                                <div class="swiper-slide event-history__item">
+                                <div class="swiper-slide event-history__item" data-event-day="8" data-event-month="декабря" data-event-weekday="">
                                     <div class="event-history__date">
                                         <div class="event-history__date-num">
                                             17
@@ -145,7 +151,7 @@
                                         суббота
                                     </div>
                                 </div>
-                                <div class="swiper-slide event-history__item">
+                                <div class="swiper-slide event-history__item" data-event-day="8" data-event-month="декабря" data-event-weekday="">
                                     <div class="event-history__date">
                                         <div class="event-history__date-num">
                                             22
@@ -158,7 +164,7 @@
                                         четверг
                                     </div>
                                 </div>
-                                <div class="swiper-slide event-history__item">
+                                <div class="swiper-slide event-history__item" data-event-day="8" data-event-month="декабря" data-event-weekday="">
                                     <div class="event-history__date">
                                         <div class="event-history__date-num">
                                             23
@@ -171,7 +177,7 @@
                                         четверг
                                     </div>
                                 </div>
-                                <div class="swiper-slide event-history__item">
+                                <div class="swiper-slide event-history__item" data-event-day="8" data-event-month="декабря" data-event-weekday="">
                                     <div class="event-history__date">
                                         <div class="event-history__date-num">
                                             24
@@ -184,7 +190,7 @@
                                         четверг
                                     </div>
                                 </div>
-                                <div class="swiper-slide event-history__item">
+                                <div class="swiper-slide event-history__item" data-event-day="8" data-event-month="декабря" data-event-weekday="">
                                     <div class="event-history__date">
                                         <div class="event-history__date-num">
                                             25
@@ -197,7 +203,7 @@
                                         четверг
                                     </div>
                                 </div>
-                                <div class="swiper-slide event-history__item">
+                                <div class="swiper-slide event-history__item" data-event-day="8" data-event-month="декабря" data-event-weekday="">
                                     <div class="event-history__date">
                                         <div class="event-history__date-num">
                                             25
@@ -215,7 +221,7 @@
 
                         <div class="event-history__info">
                             <div class="event-history__title">
-                                25 декабря <small>(четверг)</small> 20:00
+                                8 декабря <small>(четверг)</small> 20:00
                             </div>
                             <div class="event-history__text">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dolorum, error fugit hic illum libero magni modi odit possimus quam quas qui quod ratione recusandae saepe similique soluta tempore voluptatem!
@@ -247,6 +253,8 @@
 <script>
     $(function () {
         var slideItems = $('.event-history__item');
+        var eventTitle = $('.event-history__title');
+        var eventText = $('.event-history__text');
 
         var eventSwiper = new Swiper('.event-history__container', {
             // wrapperClass: 'event-history__list',
@@ -272,9 +280,19 @@
                     item.addClass('swiper-slide-active');
                 }
             },
-            onSlideChangeStart: function (swiper) {
+            //onSlideChangeStart: function (swiper) {
                 //console.log(swiper.activeIndex);
                 //console.log(slideItems.eq(swiper.activeIndex));
+            //},
+            onSlideChangeEnd: function (swiper) {
+                var item = slideItems.eq(swiper.activeIndex);
+                var title = item.data('event-day') + ' '
+                            + item.data('event-month') + ' <small>('
+                            + item.data('event-weekday') + ')</small> '
+                            + item.data('event-time');
+                eventTitle.html(title);
+                eventText.html(item.find('.event-history__description').html());
+                //console.log(item.data('event-day'));
             },
             slideToClickedSlide: true,
             breakpoints: {

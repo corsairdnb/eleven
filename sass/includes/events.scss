@@ -5,6 +5,7 @@
 
   padding: 20px;
   overflow: hidden;
+  position: relative;
 
   &__container {
     width: 650px;
@@ -69,10 +70,28 @@
 
   &__next,
   &__prev {
+    display: none;
+    width: 25px;
+    position: absolute;
+    top: 85px;
+    cursor: pointer;
+    z-index: 1;
+    color: #fff;
 
+    &.swiper-button-disabled {
+      visibility: hidden;
+    }
   }
-  &__next {}
-  &__prev {}
+  &__next {
+    right: 0;
+    @include arrow($size: 12px, $dir: left, $color: $color-yellow);
+    border-left-width: 10px;
+  }
+  &__prev {
+    left: 0;
+    @include arrow($size: 12px, $dir: right, $color: $color-yellow);
+    border-right-width: 10px;
+  }
 
   &__live {
     display: none;
@@ -133,12 +152,18 @@
     position: relative;
     z-index: 0;
   }
+  &__description {
+    display: none;
+  }
 }
 
-//@media (min-width: 1280px) {
-//  .event-history {
-//    &__container {
-//      width: 725px;
-//    }
-//  }
-//}
+
+
+@media (min-width: $ipad-land) {
+  .event-history {
+    &__next,
+    &__prev {
+      display: block;
+    }
+  }
+}
