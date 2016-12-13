@@ -6,6 +6,7 @@
   padding: 20px;
   overflow: hidden;
   position: relative;
+  user-select: none;
 
   &__container {
     width: 650px;
