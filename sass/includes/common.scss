@@ -28,3 +28,13 @@ audio {
   display: inline-block;
   vertical-align: baseline;
 }
+
+a {
+  &:link, &:visited, &:hover {
+    color: #00b4ff;
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
