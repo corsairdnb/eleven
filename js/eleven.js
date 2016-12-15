@@ -37,7 +37,7 @@
   });
 
   window.addEventListener('load', function () {
-    createVK();
+    // createVK();
   });
 
   function createVK() {
