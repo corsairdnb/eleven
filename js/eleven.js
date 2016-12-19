@@ -27,14 +27,15 @@
       if (width > document.documentElement.clientWidth) {
         container.width(history.width());
       }
+      else {
+        container.removeAttr('style');
+      }
     });
   }
 
   resize();
 
-  $(window).resize(function(){
-    resize();
-  });
+  $(window).resize($.throttle(250, resize));
 
   window.addEventListener('load', function () {
     // createVK();
