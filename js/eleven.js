@@ -10,11 +10,11 @@
 
   function resize() {
     iframeContainer.each(function(i,e){
-      var iframe = $(e).find('iframe'),
-        ratio;
+      var iframe = $(e).find('iframe');
+      var ratio;
       if (!iframe.attr('data-ratio')) {
-        var width = parseInt(iframe.attr('width')),
-          height = parseInt(iframe.attr('height'));
+        var width = parseInt(iframe.attr('width'));
+        var height = parseInt(iframe.attr('height'));
         ratio = width / height;
         iframe.attr('data-ratio', ratio);
       }
@@ -33,16 +33,35 @@
       }
     });
 
-    chat.height(document.documentElement.clientHeight - 76);
+    calcChatHeight();
   }
 
   resize();
 
   $(window).resize($.throttle(250, resize));
+  $(window).scroll($.throttle(250, calcChatHeight));
 
   window.addEventListener('load', function () {
-     createVK();
+    createVK();
+    calcChatHeight();
   });
+
+  function calcChatHeight() {
+    var chatHeight;
+    if (document.documentElement.clientWidth >= 1024) {
+      var h = parseInt($('.content-video').height()) + parseInt($('.content-audio').height()) + parseInt($('.content-events').height());
+      if (h > document.documentElement.clientHeight) {
+        chatHeight = h;
+      }
+      else {
+        chatHeight = document.documentElement.clientHeight - 76;
+      }
+    }
+    else {
+      chatHeight = document.documentElement.clientHeight;
+    }
+    chat.height(chatHeight);
+  }
 
   function createVK() {
     var vk = document.createElement('script');
@@ -136,5 +155,18 @@
       }
     };
   }
+
+  var toggle = $('.controls__toggle');
+  var player = $('.player');
+  $('.play, .stop').on('click', function () {
+    if (!toggle.hasClass('controls__toggle--stopped')) {
+      player.attr('src', '');
+      toggle.addClass('controls__toggle--stopped');
+    }
+    else {
+      player.attr('src', 'http://11thradio.com:8011/wavetactics192kbps.mp3');
+      toggle.removeClass('controls__toggle--stopped');
+    }
+  });
 
 })();

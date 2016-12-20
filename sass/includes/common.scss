@@ -40,14 +40,66 @@ a {
 }
 
 .player {
-  margin: 10px auto 0;
-  min-width: 300px;
+  margin: 0;
+  min-width: 270px;
   max-width: 480px;
+  border: 1px solid #999;
+  background: #222;
+  box-sizing: content-box;
 }
 .track-info {
+  margin-bottom: 10px;
   color: $color-yellow;
   &__name {
     display: block;
     color: #fff;
+  }
+}
+
+.audio {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: stretch;
+  align-items: stretch;
+}
+.controls {
+  border: 1px solid #999;
+  border-left: 0 none;
+
+  &__toggle {
+    height: 100%;
+    .play,
+    .stop {
+      background-color: #222;
+      height: 100%;
+      min-height: 25px;
+      border: 0 none;
+      vertical-align: top;
+      padding: 3px 10px;
+      font-size: 10px;
+      text-transform: uppercase;
+      color: #999;
+      cursor: pointer;
+      outline: 0 none;
+      box-shadow: none;
+      &:hover {
+        background-color: #111;
+      }
+    }
+    .play {
+      display: none;
+    }
+    .stop {
+      display: block;
+    }
+    &--stopped {
+      .play {
+        display: block;
+      }
+      .stop {
+        display: none;
+      }
+    }
   }
 }
