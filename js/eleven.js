@@ -6,6 +6,7 @@
 
   var iframeContainer = $('.iframe-resize');
   var history = $('.event-history');
+  var chat = $('.layout-chat');
 
   function resize() {
     iframeContainer.each(function(i,e){
@@ -31,6 +32,8 @@
         container.removeAttr('style');
       }
     });
+
+    chat.height(document.documentElement.clientHeight - 76);
   }
 
   resize();
@@ -38,7 +41,7 @@
   $(window).resize($.throttle(250, resize));
 
   window.addEventListener('load', function () {
-    // createVK();
+     createVK();
   });
 
   function createVK() {
@@ -57,7 +60,7 @@
     VK.Widgets.Auth("vk_auth", {
       width: "auto", onAuth: function (data) {
         //alert('user ' + data['first_name'] + ' ' + data['last_name'] + ' authorized');
-        window.location.href = 'http://neurodeep.ru#social';
+        window.location.href = 'http://11thradio.com';
         window.location.reload();
       }
     });
@@ -79,7 +82,7 @@
   // }
 
   function initVK() {
-    VK.init({apiId: 5250336, onlyWidgets: true});
+    VK.init({apiId: 5786458, onlyWidgets: true});
 
     VK.Auth.getLoginStatus(function (response) {
       if (response.status === 'connected') {
@@ -93,18 +96,18 @@
     // initVkWidgetGroups();
   }
 
-  function toggleVkWidget(className, show) {
-    var comments = document.querySelector(className);
-    if (typeof show === 'undefined') {
-      show = true;
-    }
-    if (show) {
-      comments.style.display = 'block';
-    }
-    else {
-      comments.style.display = 'none';
-    }
-  }
+  // function toggleVkWidget(className, show) {
+  //   var comments = document.querySelector(className);
+  //   if (typeof show === 'undefined') {
+  //     show = true;
+  //   }
+  //   if (show) {
+  //     comments.style.display = 'block';
+  //   }
+  //   else {
+  //     comments.style.display = 'none';
+  //   }
+  // }
 
   var trackInfo = document.querySelector('.track-info__name');
 
