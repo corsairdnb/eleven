@@ -106,4 +106,32 @@
     }
   }
 
+  var trackInfo = document.querySelector('.track-info__name');
+
+  setInterval(function (getTrackName){
+    try {
+      getTrackName();
+    } catch (e) {
+      console.log(e);
+    }
+  }, 20000, getTrackName);
+
+  getTrackName();
+
+  function getTrackName() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://11thradio.com:8011/status-json.xsl', true);
+    xhr.send();
+    xhr.onreadystatechange = function(){
+      if (xhr.readyState != 4) return;
+      if (xhr.status != 200) {
+        console.log(xhr.status + ': ' + xhr.statusText);
+      }
+      else {
+        var data = JSON.parse(xhr.responseText);
+        trackInfo.textContent = data.icestats.source[0].title;
+      }
+    };
+  }
+
 })();

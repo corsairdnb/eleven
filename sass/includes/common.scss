@@ -38,3 +38,20 @@ a {
     text-decoration: underline;
   }
 }
+
+.player {
+  margin: 10px auto 0;
+  min-width: 300px;
+  max-width: 480px;
+}
+.track-info {
+  color: $color-yellow;
+  &__name {
+    display: block;
+    color: #fff;
+  }
+}
+
+@media (min-width: $ipad) {
+
+}
