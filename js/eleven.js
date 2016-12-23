@@ -1,4 +1,4 @@
-;(function () {
+$(function () {
 
   $('.nav-mobile__burger').on('click', function () {
     $('.nav-mobile').toggleClass('nav-mobile--opened');
@@ -169,4 +169,148 @@
     }
   });
 
-})();
+
+
+
+
+
+
+
+  var slideItems = $('.event-history__item');
+  var eventTitle = $('.event-history__title');
+  var eventText = $('.event-history__text');
+
+  var eventSwiper = new Swiper('.event-history__container', {
+    // wrapperClass: 'event-history__list',
+    // slideClass: 'event-history__item'
+    nextButton: '.event-history__next',
+    prevButton: '.event-history__prev',
+    slidesPerView: 7,
+    onTouchStart: function (swiper) {
+      swiper.container.addClass('event-history__container--animating')
+    },
+    onTouchEnd: function (swiper) {
+      swiper.container.removeClass('event-history__container--animating')
+    },
+    onTap: function (swiper, event) {
+      //console.log('tap');
+      var item = $(event.target);
+      if (!item.hasClass('event-history__item')) {
+        item = item.closest('.event-history__item');
+      }
+      if (!item.hasClass('swiper-slide-active')) {
+        swiper.slideTo(item.index());
+        slideItems.removeClass('swiper-slide-active');
+        item.addClass('swiper-slide-active');
+      }
+
+      var title = item.data('event-day') + ' '
+        + item.data('event-month') + ' <small>('
+        + item.data('event-weekday') + ')</small> '
+        + item.data('event-time');
+      eventTitle.html(title);
+      eventText.html(item.find('.event-history__description').html());
+    },
+    //onSlideChangeStart: function (swiper) {
+    //console.log(swiper.activeIndex);
+    //console.log(slideItems.eq(swiper.activeIndex));
+    //},
+    onInit: function () {
+      var item = slideItems.eq(0);
+      var title = item.data('event-day') + ' '
+        + item.data('event-month') + ' <small>('
+        + item.data('event-weekday') + ')</small> '
+        + item.data('event-time');
+      eventTitle.html(title);
+      eventText.html(item.find('.event-history__description').html());
+    },
+    onSlideChangeEnd: function (swiper) {
+      var item = slideItems.eq(swiper.activeIndex);
+      var title = item.data('event-day') + ' '
+        + item.data('event-month') + ' <small>('
+        + item.data('event-weekday') + ')</small> '
+        + item.data('event-time');
+      eventTitle.html(title);
+      eventText.html(item.find('.event-history__description').html());
+      //console.log(item.data('event-day'));
+    },
+    slideToClickedSlide: true,
+    breakpoints: {
+      375: {
+        slidesPerView: 3
+      },
+      480: {
+        slidesPerView: 4
+      },
+      667: {
+        slidesPerView: 6
+      }
+    },
+    threshold: 10
+  });
+
+});
+
+
+
+
+
+
+var youtubeScript = document.createElement('script');
+youtubeScript.src = "https://www.youtube.com/iframe_api";
+
+document.head.appendChild(youtubeScript);
+
+var youtube;
+function onYouTubeIframeAPIReady() {
+  youtube = new YT.Player('youtube', {
+    // origin: 'http://11thradio.com',
+    height: '366',
+    width: '650',
+    videoId: 'bJY2S_4st_M',
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    },
+    playerVars: {
+      autoplay: 1,
+      fs: 1
+    }
+  });
+}
+
+function onPlayerReady(event) {
+  event.target.playVideo();
+
+  $(function () {
+    var iframe = $('.iframe-resize').find('iframe');
+    var ratio;
+    if (!iframe.attr('data-ratio')) {
+      var width = parseInt(iframe.attr('width'));
+      var height = parseInt(iframe.attr('height'));
+      ratio = width / height;
+      iframe.attr('data-ratio', ratio);
+    }
+    iframe.attr('width', '100%');
+    iframe.attr('height', parseInt(iframe.width()) / iframe.attr('data-ratio'));
+  });
+}
+var done = false;
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING && !done) {
+    $(function () {
+      var toggle = $('.controls__toggle');
+      var player = $('.player');
+      player.attr('src', '');
+      toggle.addClass('controls__toggle--stopped');
+      done = true;
+    });
+  }
+  // console.log(event);
+  // console.log(event.target.getPlayerState());
+}
+
+
+// function stopVideo() {
+//   youtube.stopVideo();
+// }
