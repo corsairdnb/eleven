@@ -4,23 +4,23 @@ $(function () {
     $('.nav-mobile').toggleClass('nav-mobile--opened');
   });
 
-  var iframeContainer = $('.iframe-resize');
+  // var iframeContainer = $('.iframe-resize');
   var history = $('.event-history');
   var chat = $('.layout-chat');
 
   function resize() {
-    iframeContainer.each(function(i,e){
-      var iframe = $(e).find('iframe');
-      var ratio;
-      if (!iframe.attr('data-ratio')) {
-        var width = parseInt(iframe.attr('width'));
-        var height = parseInt(iframe.attr('height'));
-        ratio = width / height;
-        iframe.attr('data-ratio', ratio);
-      }
-      iframe.attr('width', '100%');
-      iframe.attr('height', parseInt(iframe.width()) / iframe.attr('data-ratio'));
-    });
+    // iframeContainer.each(function(i,e){
+    //   var iframe = $(e).find('iframe');
+    //   var ratio;
+    //   if (!iframe.attr('data-ratio')) {
+    //     var width = parseInt(iframe.attr('width'));
+    //     var height = parseInt(iframe.attr('height'));
+    //     ratio = width / height;
+    //     iframe.attr('data-ratio', ratio);
+    //   }
+    //   iframe.attr('width', '100%');
+    //   iframe.attr('height', parseInt(iframe.width()) / iframe.attr('data-ratio'));
+    // });
 
     $('.event-history__container').each(function(i, e){
       var container = $(e);
@@ -249,6 +249,20 @@ $(function () {
     threshold: 10
   });
 
+  var youtube = $('<iframe frameborder="0" allowfullscreen="1" src="https://www.youtube.com/embed/live_stream?channel=UCGnicvLKJ8M09dyELMXXg7g&autoplay=0&fs=1&enablejsapi=0&origin='+encodeURIComponent(location.origin)+'&widgetid=1" width="650" height="366" title="11th Radio Live"></iframe>');
+  youtube.on('load', function () {
+    var ratio;
+    if (!youtube.attr('data-ratio')) {
+      var width = parseInt(youtube.attr('width'));
+      var height = parseInt(youtube.attr('height'));
+      ratio = width / height;
+      youtube.attr('data-ratio', ratio);
+    }
+    youtube.attr('width', '100%');
+    youtube.attr('height', parseInt(youtube.width()) / youtube.attr('data-ratio'));
+  });
+  $('#youtube').html(youtube);
+
 });
 
 
@@ -256,59 +270,63 @@ $(function () {
 
 
 
-var youtubeScript = document.createElement('script');
-youtubeScript.src = "https://www.youtube.com/iframe_api";
+// var youtubeScript = document.createElement('script');
+// youtubeScript.src = "https://www.youtube.com/iframe_api";
+//
+// document.head.appendChild(youtubeScript);
 
-document.head.appendChild(youtubeScript);
-
-var youtube;
-function onYouTubeIframeAPIReady() {
-  youtube = new YT.Player('youtube', {
-    // origin: 'http://11thradio.com',
-    height: '366',
-    width: '650',
-    videoId: 'obYGOLVjdgw',
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-    },
-    playerVars: {
-      autoplay: 1,
-      fs: 1
-    }
-  });
-}
-
-function onPlayerReady(event) {
-  event.target.playVideo();
-
-  $(function () {
-    var iframe = $('.iframe-resize').find('iframe');
-    var ratio;
-    if (!iframe.attr('data-ratio')) {
-      var width = parseInt(iframe.attr('width'));
-      var height = parseInt(iframe.attr('height'));
-      ratio = width / height;
-      iframe.attr('data-ratio', ratio);
-    }
-    iframe.attr('width', '100%');
-    iframe.attr('height', parseInt(iframe.width()) / iframe.attr('data-ratio'));
-  });
-}
-var done = false;
-function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING && !done) {
-    $(function () {
-      var toggle = $('.controls__toggle');
-      var player = $('.player');
-      player.attr('src', '');
-      toggle.addClass('controls__toggle--stopped');
-      done = true;
-    });
-  }
-  // console.log(event);
-  // console.log(event.target.getPlayerState());
-}
+// var youtube;
+// function onYouTubeIframeAPIReady() {
+//   youtube = new YT.Player('youtube', {
+//     // origin: 'http://11thradio.com',
+//     height: '366',
+//     width: '650',
+//     videoId: 'obYGOLVjdgw',
+//     events: {
+//       'onReady': onPlayerReady,
+//       'onStateChange': onPlayerStateChange
+//     },
+//     playerVars: {
+//       autoplay: 1,
+//       fs: 1
+//     }
+//   });
+// }
+//
+// function onPlayerReady(event) {
+//   console.log(event);
+//   var iframe = event.target.getIframe();
+//   iframe.src = 'https://www.youtube.com/embed/live_stream?channel=UCg-skjFYlC6MDFi7TW-2_Ow';
+//   event.target.playVideo();
+//
+//   $(function () {
+//     var iframe = $('.iframe-resize').find('iframe');
+//     var ratio;
+//     if (!iframe.attr('data-ratio')) {
+//       var width = parseInt(iframe.attr('width'));
+//       var height = parseInt(iframe.attr('height'));
+//       ratio = width / height;
+//       iframe.attr('data-ratio', ratio);
+//     }
+//     iframe.attr('width', '100%');
+//     iframe.attr('height', parseInt(iframe.width()) / iframe.attr('data-ratio'));
+//   });
+// }
+// var done = false;
+// function onPlayerStateChange(event) {
+//   console.log(event);
+//   if (event.data == YT.PlayerState.PLAYING && !done) {
+//     $(function () {
+//       var toggle = $('.controls__toggle');
+//       var player = $('.player');
+//       player.attr('src', '');
+//       toggle.addClass('controls__toggle--stopped');
+//       done = true;
+//     });
+//   }
+//   // console.log(event);
+//   // console.log(event.target.getPlayerState());
+// }
 
 
 // function stopVideo() {
