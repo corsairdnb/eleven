@@ -41,10 +41,8 @@ $(function () {
   $(window).resize($.throttle(250, resize));
   $(window).scroll($.throttle(250, calcChatHeight));
 
-  window.addEventListener('load', function () {
-    createVK();
-    calcChatHeight();
-  });
+  createVK();
+  calcChatHeight();
 
   function calcChatHeight() {
     var chatHeight;
