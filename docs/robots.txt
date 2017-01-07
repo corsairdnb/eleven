@@ -1,6 +1,5 @@
 User-Agent: *
-Disallow: /wp-includes/wlwmanifest.xml
-Disallow: /xmlrpc.php
-Disallow: /comments/feed
-Disallow: /feed
 Host: 11thradio.com
+
+Harisov_[11th res.] _-_Black_Friday_(16.12.2016).jpg
+Harisov_[11th_res.]_-_Black_Friday_(16.12.2016).jpg

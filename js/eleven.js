@@ -127,6 +127,7 @@ $(function () {
   // }
 
   var trackInfo = document.querySelector('.track-info__name');
+  var coverImg = document.querySelector('.track-info__img');
 
   setInterval(function (getTrackName){
     try {
@@ -150,13 +151,24 @@ $(function () {
       else {
         var data = JSON.parse(xhr.responseText);
         trackInfo.textContent = data.icestats.source[0].title;
+        coverImg.src = 'http://11thradio.com/coverarts/dnb/' + data.icestats.source[0].title.replace(/ /g, '_') + '.jpg';
       }
     };
   }
 
   var toggle = $('.controls__toggle');
   var player = $('.player');
-  $('.play, .stop').on('click', function () {
+
+  // if (player.paused) {
+  //   player.attr('src', '');
+  //   toggle.addClass('controls__toggle--stopped');
+  // }
+
+  if (isMobile.any) {
+    $('html').addClass('is-mobile');
+  }
+
+  $('.play, .pause').on('click', function () {
     if (!toggle.hasClass('controls__toggle--stopped')) {
       player.attr('src', '');
       toggle.addClass('controls__toggle--stopped');

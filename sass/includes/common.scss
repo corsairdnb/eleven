@@ -39,7 +39,16 @@ a {
   }
 }
 
+#play-pause {
+  display: none;
+}
+.audio-wrap {
+  width: 100%;
+  flex-basis: 100%;
+  text-align: center;
+}
 .player {
+  display: none;
   margin: 0;
   min-width: 270px;
   max-width: 480px;
@@ -47,57 +56,144 @@ a {
   background: #222;
   box-sizing: content-box;
 }
+.is-mobile {
+  .player {
+    display: initial;
+  }
+}
+.audio {
+  position: relative;
+  width: 60px;
+  margin-right: auto;
+
+  @media (min-width: 480px) {
+    & {
+      width: 75px;
+    }
+  }
+}
 .track-info {
-  margin-bottom: 10px;
+  width: 85%;
+  padding: 0 0 0 15px;
   color: $color-yellow;
+  font-size: 14px;
+  line-height: 1.4em;
+
+  @at-root .is-mobile & {
+    width: 100%;
+  }
+
+  @media (min-width: 480px) {
+    & {
+      padding: 0 10px 0 0;
+      font-size: 16px;
+      line-height: 1.5em;
+    }
+  }
+
   &__name {
     display: block;
     color: #fff;
+    overflow: hidden;
+  }
+  &__cover {
+    display: block;
+    float: left;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    margin: 0 20px 0 0;
+    padding: 5px 0 0;
+
+    @media (min-width: 480px) {
+      & {
+        padding: 0;
+        width: 75px;
+        height: 75px;
+      }
+    }
+
+    //@media (min-width: 480px) {
+    //  & {
+    //    float: left;
+    //  }
+    //}
+  }
+  &__img {
+    margin: 0;
+    display: block;
+    width: 50px;
+    height: 50px;
+
+    @media (min-width: 480px) {
+      & {
+        width: 75px;
+        height: 75px;
+      }
+    }
   }
 }
-
-.audio {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: stretch;
-  align-items: stretch;
-}
 .controls {
-  border: 1px solid #999;
-  border-left: 0 none;
+  width: 100%;
+  height: 100%;
+
+  @at-root .is-mobile & {
+    display: none;
+  }
 
   &__toggle {
+    position: relative;
+    width: 100%;
     height: 100%;
+    padding: 0 0 0 5px;
+    text-align: center;
+
+    @media (min-width: 480px) {
+      & {
+        padding: 8px 0 0 20px;
+      }
+    }
+
     .play,
-    .stop {
-      background-color: #222;
-      height: 100%;
-      min-height: 25px;
+    .pause {
+      display: inline-block;
+      width: 30px;
+      height: 50px;
+      margin: 0;
+      padding: 0;
+      background: none;
       border: 0 none;
-      vertical-align: top;
-      padding: 3px 10px;
-      font-size: 10px;
-      text-transform: uppercase;
-      color: #999;
-      cursor: pointer;
-      outline: 0 none;
+      outline: none;
       box-shadow: none;
-      &:hover {
-        background-color: #111;
+      cursor: pointer;
+      font-size: 0;
+      line-height: 0;
+      > svg {
+        width: 100%;
+        height: 100%;
+      }
+      &:hover > svg * {
+        stroke: $color-yellow;
+      }
+
+      @media (min-width: 480px) {
+        & {
+          width: 50px;
+          height: 60px;
+        }
       }
     }
     .play {
       display: none;
     }
-    .stop {
-      display: block;
+    .pause {
+      display: inline-block;
     }
     &--stopped {
       .play {
-        display: block;
+        display: inline-block;
       }
-      .stop {
+      .pause {
         display: none;
       }
     }

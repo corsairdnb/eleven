@@ -78,6 +78,8 @@
     }
     &__item-level-2 {
       display: inline-block;
+      flex: 0 0 auto;
+      max-width: 100%;
     }
     &__link {
       margin: 0;

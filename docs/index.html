@@ -7,7 +7,7 @@
     <title>11th Radio - A New Era of Underground Music</title>
     <meta name="description" content="Drum & Bass radio station">
     <meta name="keywords" content="drum&bass, drum, bass, dnb, radio">
-    <link rel="stylesheet" href="css/eleven.css?v1">
+    <link rel="stylesheet" href="css/eleven.css?v7">
     <link rel="shortcut icon" href="favicon.ico">
 
     <meta property="og:type" content="music.radio_station">
@@ -71,18 +71,30 @@
                     </div>
                 </div>
                 <div class="content-audio">
-                    <div class="track-info">
-                        <b>Сейчас в эфире:</b>
-                        <span class="track-info__name"></span>
-                    </div>
+                    <div class="audio-wrap"><audio src="http://11thradio.com:8011/wavetactics192kbps.mp3" class="player" preload="auto" controls autoplay></audio></div>
                     <div class="audio">
-                        <audio src="http://11thradio.com:8011/wavetactics192kbps.mp3" class="player" autoplay="" preload="auto" controls=""></audio>
                         <div class="controls">
                             <div class="controls__toggle">
-                                <button type="button" class="stop">Stop</button>
-                                <button type="button" class="play">Play</button>
+                                <button type="button" class="pause" title="Pause">
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="11" height="15" id="pause" viewBox="0 0 11 15" xml:space="preserve">
+                                        <rect x="0" y="2" width="4" height="11" stroke="#fff" stroke-width="1" fill="#111"></rect>
+                                        <rect x="7" y="2" width="4" height="11" stroke="#fff" stroke-width="1" fill="#111"></rect>
+                                    </svg>
+                                </button>
+                                <button type="button" class="play" title="Play">
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="15" height="15" id="pause" viewBox="0 0 15 15" xml:space="preserve">
+                                        <polygon points="2,1 2,14 13,7" stroke="#fff" stroke-width="1" fill="#111" class="item"></polygon>
+                                    </svg>
+                                </button>
                             </div>
                         </div>
+                    </div>
+                    <div class="track-info">
+                        <span class="track-info__cover">
+                            <img alt="" class="track-info__img">
+                        </span>
+                        <b>Сейчас в эфире:</b>
+                        <span class="track-info__name"></span>
                     </div>
                 </div>
                 <div class="content-events">
@@ -91,56 +103,7 @@
                         <div class="event-history__container swiper-container">
                             <div class="event-history__list swiper-wrapper">
 
-                                <div class="swiper-slide event-history__item event-history__item--current" data-event-day="5" data-event-month="января" data-event-weekday="четверг" data-event-time="20:00">
-                                    <div class="event-history__date">
-                                        <div class="event-history__date-num">
-                                            5
-                                        </div>
-                                        <div class="event-history__date-mon">
-                                            янв
-                                        </div>
-                                    </div>
-                                    <div class="event-history__day">
-                                        четверг
-                                    </div>
-                                    <p class="event-history__description">
-                                        <b>Прямой эфир из студии 11th Radio</b><br>
-                                    </p>
-                                </div>
-                                <div class="swiper-slide event-history__item" data-event-day="6" data-event-month="января" data-event-weekday="пятница" data-event-time="20:00">
-                                    <div class="event-history__date">
-                                        <div class="event-history__date-num">
-                                            6
-                                        </div>
-                                        <div class="event-history__date-mon">
-                                            янв
-                                        </div>
-                                    </div>
-                                    <div class="event-history__day">
-                                        пятница
-                                    </div>
-                                    <p class="event-history__description">
-                                        <b>Прямой эфир из студии 11th Radio</b><br>
-                                    </p>
-                                </div>
-                                <div class="swiper-slide event-history__item" data-event-day="7" data-event-month="января" data-event-weekday="суббота" data-event-time="20:00">
-                                    <div class="event-history__date">
-                                        <div class="event-history__date-num">
-                                            7
-                                        </div>
-                                        <div class="event-history__date-mon">
-                                            янв
-                                        </div>
-                                    </div>
-                                    <div class="event-history__day">
-                                        суббота
-                                    </div>
-                                    <p class="event-history__description">
-                                        <b>РОЖДЕСТВЕНСКИЙ прямой эфир из студии 11th Radio</b><br>
-                                    </p>
-                                </div>
-
-                                <div class="swiper-slide event-history__item event-history__item--current" data-event-day="12" data-event-month="января" data-event-weekday="четверг" data-event-time="20:00">
+                                <div class="swiper-slide event-history__item event-history__item--current" data-event-day="12" data-event-month="января" data-event-weekday="четверг" data-event-time="21:00">
                                     <div class="event-history__date">
                                         <div class="event-history__date-num">
                                             12
@@ -153,7 +116,8 @@
                                         четверг
                                     </div>
                                     <p class="event-history__description">
-                                        <b>Прямой эфир из студии 11th Radio</b><br>
+                                        <b>Neurodeep Session</b> with Corsair<br>
+                                        <b>Neuro<span style="color: coral">J</span><span style="color: red">u</span><span style="color: green">m</span><span style="color: dodgerblue">p</span></b> with Beketov<br>
                                     </p>
                                 </div>
                                 <div class="swiper-slide event-history__item" data-event-day="13" data-event-month="января" data-event-weekday="пятница" data-event-time="20:00">
@@ -169,7 +133,9 @@
                                         пятница
                                     </div>
                                     <p class="event-history__description">
-                                        <b>Прямой эфир из студии 11th Radio</b><br>
+                                        <b>Nuke Lab:</b><br>
+                                        Plasti-X<br>
+                                        Perimetre <i>[special guest]</i><br>
                                     </p>
                                 </div>
                                 <div class="swiper-slide event-history__item" data-event-day="14" data-event-month="января" data-event-weekday="суббота" data-event-time="20:00">
@@ -185,7 +151,7 @@
                                         суббота
                                     </div>
                                     <p class="event-history__description">
-                                        <b>Прямой эфир из студии 11th Radio</b><br>
+                                        <b>Integration</b> with eM Kay<br>
                                     </p>
                                 </div>
 
@@ -238,6 +204,55 @@
                                     </p>
                                 </div>
 
+                                <div class="swiper-slide event-history__item event-history__item--current" data-event-day="26" data-event-month="января" data-event-weekday="четверг" data-event-time="20:00">
+                                    <div class="event-history__date">
+                                        <div class="event-history__date-num">
+                                            26
+                                        </div>
+                                        <div class="event-history__date-mon">
+                                            янв
+                                        </div>
+                                    </div>
+                                    <div class="event-history__day">
+                                        четверг
+                                    </div>
+                                    <p class="event-history__description">
+                                        <b>Прямой эфир из студии 11th Radio</b><br>
+                                    </p>
+                                </div>
+                                <div class="swiper-slide event-history__item" data-event-day="27" data-event-month="января" data-event-weekday="пятница" data-event-time="20:00">
+                                    <div class="event-history__date">
+                                        <div class="event-history__date-num">
+                                            27
+                                        </div>
+                                        <div class="event-history__date-mon">
+                                            янв
+                                        </div>
+                                    </div>
+                                    <div class="event-history__day">
+                                        пятница
+                                    </div>
+                                    <p class="event-history__description">
+                                        <b>Прямой эфир из студии 11th Radio</b><br>
+                                    </p>
+                                </div>
+                                <div class="swiper-slide event-history__item" data-event-day="28" data-event-month="января" data-event-weekday="суббота" data-event-time="20:00">
+                                    <div class="event-history__date">
+                                        <div class="event-history__date-num">
+                                            28
+                                        </div>
+                                        <div class="event-history__date-mon">
+                                            янв
+                                        </div>
+                                    </div>
+                                    <div class="event-history__day">
+                                        суббота
+                                    </div>
+                                    <p class="event-history__description">
+                                        <b>Прямой эфир из студии 11th Radio</b><br>
+                                    </p>
+                                </div>
+
                             </div>
                         </div>
 
@@ -270,8 +285,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
 
 <script src="js/jquery-throttle-debounce.min.js"></script>
+<script src="js/isMobile.min.js"></script>
 <script src="js/swiper.js"></script>
-<script src="js/eleven.js?v7"></script>
+<script src="js/eleven.js?v9"></script>
 
 </body>
 </html>
