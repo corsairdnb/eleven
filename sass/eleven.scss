@@ -10,8 +10,24 @@
 @import './includes/nav-mobile';
 @import './includes/events';
 
+.tether-element,.tether-element *,.tether-element :after,.tether-element :before,.tether-element:after,.tether-element:before{box-sizing:border-box}.tether-element{position:absolute;display:none}.tether-element.tether-open{display:block}
+
+.bs-tether-element {
+  max-width: none !important;
+}
+
+@import "./bs/_variables";
+@import "./bs/_mixins";
+// @import "./bs/_utilities";
+//@import "./bs/tooltip";
+@import "./bs/popover";
+
 .image-placeholder {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.track-info__popover-img {
+  max-width: 300px;
 }

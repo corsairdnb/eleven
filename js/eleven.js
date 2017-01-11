@@ -273,6 +273,20 @@ $(function () {
   });
   $('#youtube').html(youtube);
 
+
+
+
+  if (document.documentElement.clientWidth >= 1024) {
+    $('.track-info__img').popover({
+      html: true,
+      trigger: 'hover',
+      delay: 1000,
+      content: function () {
+        return '<img class="track-info__popover-img" src="'+ this.src +'" />';
+      }
+    });
+  }
+
 });
 
 
