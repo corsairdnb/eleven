@@ -280,7 +280,7 @@ $(function () {
     $('.track-info__img').popover({
       html: true,
       trigger: 'hover',
-      delay: 1000,
+      delay: 500,
       content: function () {
         return '<img class="track-info__popover-img" src="'+ this.src +'" />';
       }
