@@ -277,14 +277,18 @@ $(function () {
 
 
   if (document.documentElement.clientWidth >= 1024) {
-    $('.track-info__img').popover({
-      html: true,
-      trigger: 'hover',
-      delay: 500,
-      content: function () {
-        return '<img class="track-info__popover-img" src="'+ this.src +'" />';
-      }
-    });
+    $('.track-info__img')
+      .popover({
+        html: true,
+        trigger: 'hover',
+        delay: 500,
+        content: function () {
+          return '<img class="track-info__popover-img" src="'+ this.src +'" />';
+        }
+      })
+      .on('error', function () {
+        this.src = '/img/social.png';
+      });
   }
 
 });
