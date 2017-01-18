@@ -39,6 +39,13 @@ a {
   }
 }
 
+mark {
+  color: inherit;
+  background-color: #1d4bdc;
+  padding: 0 .5em;
+  margin: 0 0 0 -.5em;
+}
+
 #play-pause {
   display: none;
 }
