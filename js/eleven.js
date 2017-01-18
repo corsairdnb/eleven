@@ -174,7 +174,7 @@ $(function () {
       toggle.addClass('controls__toggle--stopped');
     }
     else {
-      player.attr('src', 'http://11thradio.com:8011/wavetactics192kbps.mp3');
+      player.attr('src', 'http://11thradio.com/audiostreams/192kbps.mp3');
       toggle.removeClass('controls__toggle--stopped');
     }
   });
