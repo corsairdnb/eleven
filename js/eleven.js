@@ -129,6 +129,10 @@ $(function () {
   var trackInfo = document.querySelector('.track-info__name');
   var coverImg = document.querySelector('.track-info__img');
 
+  coverImg.on('error', function () {
+    this.src = '/img/social.png';
+  });
+
   setInterval(function (getTrackName){
     try {
       getTrackName();
