@@ -263,19 +263,20 @@ $(function () {
     threshold: 10
   });
 
-  var youtube = $('<iframe frameborder="0" allowfullscreen="1" src="https://www.youtube.com/embed/live_stream?channel=UCGnicvLKJ8M09dyELMXXg7g&autoplay=0&fs=1&enablejsapi=0&origin='+encodeURIComponent(location.origin)+'&widgetid=1" width="650" height="366" title="11th Radio Live"></iframe>');
-  youtube.on('load', function () {
-    var ratio;
-    if (!youtube.attr('data-ratio')) {
-      var width = parseInt(youtube.attr('width'));
-      var height = parseInt(youtube.attr('height'));
-      ratio = width / height;
-      youtube.attr('data-ratio', ratio);
-    }
-    youtube.attr('width', '100%');
-    youtube.attr('height', parseInt(youtube.width()) / youtube.attr('data-ratio'));
-  });
-  $('#youtube').html(youtube);
+  // TODO: youtube
+  // var youtube = $('<iframe frameborder="0" allowfullscreen="1" src="https://www.youtube.com/embed/live_stream?channel=UCGnicvLKJ8M09dyELMXXg7g&autoplay=0&fs=1&enablejsapi=0&origin='+encodeURIComponent(location.origin)+'&widgetid=1" width="650" height="366" title="11th Radio Live"></iframe>');
+  // youtube.on('load', function () {
+  //   var ratio;
+  //   if (!youtube.attr('data-ratio')) {
+  //     var width = parseInt(youtube.attr('width'));
+  //     var height = parseInt(youtube.attr('height'));
+  //     ratio = width / height;
+  //     youtube.attr('data-ratio', ratio);
+  //   }
+  //   youtube.attr('width', '100%');
+  //   youtube.attr('height', parseInt(youtube.width()) / youtube.attr('data-ratio'));
+  // });
+  // $('#youtube').html(youtube);
 
 
 
@@ -294,6 +295,86 @@ $(function () {
         this.src = '/img/social.png';
       });
   }
+
+
+
+
+  var settings = {
+    xmpp: {
+      url: 'http://jabber.local:5280/http-bind/',
+      domain: 'localhost',
+      resource: 'conference',
+      overwrite: true
+    }
+  };
+
+  jsxc.init({
+    loginForm: {
+      form: '#form',
+      jid: '#username',
+      pass: '#password'
+    },
+    logoutElement: $('#logout'),
+    rosterAppend: 'body',
+    root: '/',
+    displayRosterMinimized: function() {
+      return true;
+    },
+    loadSettings: function(username, password, cb) {
+      cb(settings);
+    },
+    xmpp: {
+      url: settings.xmpp.url
+    }
+  });
+
+  $(document).on('ready.roster.jsxc', function(){
+    $('#content').css('right', $('#jsxc_roster').outerWidth() + parseFloat($('#jsxc_roster').css('right')));
+  });
+  $(document).on('toggle.roster.jsxc', function(event, state, duration){
+    $('#content').animate({
+      right: ((state === 'shown') ? $('#jsxc_roster').outerWidth() : 0) + 'px'
+    }, duration);
+  });
+
+  // $('#form2').submit(function(ev) {
+  //   ev.preventDefault();
+  //
+  //   source = $(this);
+  //   $('#submit2').button('loading');
+  //
+  //   jsxc.start($('#username2').val() + '@' + settings.xmpp.domain, $('#password2').val());
+  // });
+
+  jsxc.start('admin' + '@' + 'localhost', 'admin');
+
+  // form elements which needs to be enabled/disabled
+  var formElements = $('#form2, #form').find('input');
+
+  $(document).on('connecting.jsxc', function() {
+    formElements.prop('disabled', true);
+  });
+
+  $(document).on('authfail.jsxc', function() {
+    formElements.prop('disabled', false);
+    $(source).find('.alert').show();
+    $(source).find('.submit').button('reset');
+  });
+
+  $(document).on('attached.jsxc', function() {
+    formElements.prop('disabled', true);
+    $('.submit').hide();
+    $('form .alert').hide();
+
+    $('.logout').show().click(jsxc.xmpp.logout);
+  });
+
+  $(document).on('disconnected.jsxc', function() {
+    $(source).find('button').button('reset');
+    formElements.prop('disabled', false);
+    $('.submit').show();
+    $('.logout').hide().off('click');
+  });
 
 });
 
