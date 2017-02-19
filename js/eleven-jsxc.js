@@ -17,7 +17,7 @@
 
     var settings = {
       xmpp: {
-        url: 'http://jabber.local:5280/http-bind/',
+        url: '/http-bind/',
         domain: 'localhost',
         resource: 'conference',
         overwrite: true
@@ -31,7 +31,6 @@
         pass: '#password'
       },
       logoutElement: $('#logout'),
-      rosterAppend: 'body',
       root: '/',
       displayRosterMinimized: function() {
         return true;
@@ -41,8 +40,12 @@
       },
       xmpp: {
         url: settings.xmpp.url
-      }
+      },
+      rosterAppend: '.content-chat'
     });
+
+
+    jsxc.muc.join('test_room', 'admin');
 
     $document.on('ready.roster.jsxc', function(){
       $('#content').css('right', $roster.outerWidth() + parseFloat($roster.css('right')));
