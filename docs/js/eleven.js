@@ -126,22 +126,22 @@ $(function () {
   //   }
   // }
 
-  var trackInfo = document.querySelector('.track-info__name');
-  var coverImg = document.querySelector('.track-info__img');
-
-  $(coverImg).on('error', function () {
-    this.src = '/img/social.png';
-  });
-
-  setInterval(function (getTrackName){
-    try {
-      getTrackName();
-    } catch (e) {
-      console.log(e);
-    }
-  }, 20000, getTrackName);
-
-  getTrackName();
+  // var trackInfo = document.querySelector('.track-info__name');
+  // var coverImg = document.querySelector('.track-info__img');
+  //
+  // $(coverImg).on('error', function () {
+  //   this.src = '/img/social.png';
+  // });
+  //
+  // setInterval(function (getTrackName){
+  //   try {
+  //     getTrackName();
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // }, 20000, getTrackName);
+  //
+  // getTrackName();
 
   function getTrackName() {
     var xhr = new XMLHttpRequest();

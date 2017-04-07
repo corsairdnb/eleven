@@ -6,3 +6,10 @@
   position: relative;
   width: 98%;
 }
+
+#jsxc_toggleRoster {
+  display: none;
+}
+#jsxc_roster.jsxc_state_hidden {
+  right: auto;
+}

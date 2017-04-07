@@ -47,14 +47,14 @@
 
     jsxc.muc.join('test_room', 'admin');
 
-    $document.on('ready.roster.jsxc', function(){
-      $('#content').css('right', $roster.outerWidth() + parseFloat($roster.css('right')));
-    });
-    $document.on('toggle.roster.jsxc', function(event, state, duration){
-      $('#content').animate({
-        right: ((state === 'shown') ? $roster.outerWidth() : 0) + 'px'
-      }, duration);
-    });
+    // $document.on('ready.roster.jsxc', function(){
+    //   $('#content').css('right', $roster.outerWidth() + parseFloat($roster.css('right')));
+    // });
+    // $document.on('toggle.roster.jsxc', function(event, state, duration){
+    //   $('#content').animate({
+    //     right: ((state === 'shown') ? $roster.outerWidth() : 0) + 'px'
+    //   }, duration);
+    // });
 
     // $('#form2').submit(function(ev) {
     //   ev.preventDefault();
