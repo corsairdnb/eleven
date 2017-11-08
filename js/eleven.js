@@ -155,7 +155,7 @@ $(function () {
       else {
         var data = JSON.parse(xhr.responseText);
         trackInfo.textContent = data.icestats.source[0].title;
-        coverImg.src = 'http://11thradio.com/coverarts/' + data.icestats.source[0].title.replace(/ /g, '_') + '.jpg';
+        coverImg.src = 'http://11thradio.com/podcasts/coverarts/' + data.icestats.source[0].title.replace(/ /g, '_') + '.jpg';
       }
     };
   }
